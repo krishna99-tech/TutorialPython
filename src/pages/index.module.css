@@ -21,3 +21,50 @@
   align-items: center;
   justify-content: center;
 }
+
+.curriculumSection {
+  padding: 8rem 0;
+  background: white;
+}
+
+[data-theme='dark'] .curriculumSection {
+  background: #020617;
+}
+
+.curriculumCard {
+  background: #f8fafc;
+  padding: 2.5rem;
+  border-radius: 20px;
+  height: 100%;
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+  text-align: center;
+}
+
+[data-theme='dark'] .curriculumCard {
+  background: #0f172a;
+  border-color: #1e293b;
+}
+
+.curriculumCard:hover {
+  transform: translateY(-5px);
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.1);
+}
+
+.curriculumIcon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.curriculumCard h3 {
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+.curriculumCard p {
+  color: #64748b;
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}

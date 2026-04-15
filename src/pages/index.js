@@ -13,11 +13,12 @@ function HomepageHeader() {
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
         <Heading as="h1" className="hero__title">
-          The Definitive Python Hub
+          Master Python <br/>
+          <span className="gradient-text">From Scratch to Pro</span>
         </Heading>
         <p className="hero__subtitle">
-          Master Python from architecture to deployment with modern, 
-          interactive documentation.
+          The most comprehensive, 45-module curriculum designed to take you from 
+          beginner to advanced Python architecture.
         </p>
         <div className={styles.buttons}>
           <Link
@@ -31,15 +32,43 @@ function HomepageHeader() {
   );
 }
 
+const CurriculumSummary = () => (
+  <section className={styles.curriculumSection}>
+    <div className="container">
+      <div className="text--center margin-bottom--xl">
+        <Heading as="h2">Structured for Success</Heading>
+        <p>A proven path divided into logical milestones.</p>
+      </div>
+      <div className="row">
+        {[
+          { icon: '🚀', title: 'The Basics', desc: 'Variables, Syntax, Controls' },
+          { icon: '📦', title: 'Data Structures', desc: 'Lists, Dicts, Tuples' },
+          { icon: '🧩', title: 'OOP & Modern', desc: 'Classes, Match, Lambdas' },
+          { icon: '💾', title: 'Advanced', desc: 'SQL, Files, VirtualEnv' }
+        ].map((item, i) => (
+          <div key={i} className="col col--3">
+            <div className={styles.curriculumCard}>
+              <div className={styles.curriculumIcon}>{item.icon}</div>
+              <h3>{item.title}</h3>
+              <p>{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
 export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
       title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      description="Modern Python Learning Hub">
       <HomepageHeader />
       <main>
         <HomepageFeatures />
+        <CurriculumSummary />
       </main>
     </Layout>
   );
