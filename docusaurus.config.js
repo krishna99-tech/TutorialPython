@@ -27,14 +27,11 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'python-learning-hub', 
+  projectName: 'full-python-course',
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'ignore',
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -47,26 +44,10 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
         },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
-        },
+        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -74,18 +55,41 @@ const config = {
     ],
   ],
 
+  plugins: [
+    [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      {
+        hashed: true,
+        language: ["en"],
+        indexBlog: false,
+        docsRouteBasePath: "/docs",
+      },
+    ],
+    [
+      '@docusaurus/plugin-pwa',
+      {
+        debug: false,
+        offlineModeActivationStrategies: ['always'],
+        pwaHead: [
+          { tagName: 'link', rel: 'icon', href: '/img/logo.svg' },
+          { tagName: 'link', rel: 'manifest', href: '/manifest.json' },
+          { tagName: 'meta', name: 'theme-color', content: '#6366f1' },
+        ],
+      },
+    ],
+  ],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
-      colorMode: {
-        respectPrefersColorScheme: true,
-      },
+      metadata: [
+        {name: 'keywords', content: 'python, programming, coding, tutorial, course, advanced python'},
+        {name: 'twitter:card', content: 'summary_large_image'},
+      ],
       navbar: {
-        title: 'Python Hub',
+        title: 'Python Hub Pro',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'Python Hub Logo',
           src: 'img/logo.svg',
         },
         items: [
@@ -93,12 +97,11 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Learn Python',
+            label: 'The Curriculum',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
-            label: 'GitHub',
+            href: 'https://github.com/your-org/python-hub',
+            label: 'Source Code',
             position: 'right',
           },
         ],
@@ -107,46 +110,30 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: 'Learn',
             items: [
-              {
-                label: 'Basics',
-                to: '/docs/intro',
-              },
+              { label: 'Introduction', to: '/docs/intro' },
+              { label: 'Basics', to: '/docs/python-learning/01-basics/01-get-started' },
+              { label: 'OOP Mastery', to: '/docs/python-learning/04-oop/35-oop' },
             ],
           },
           {
-            title: 'Community',
+            title: 'Resources',
             items: [
-              {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'X',
-                href: 'https://x.com/docusaurus',
-              },
+              { label: 'Built-in Functions', to: '/docs/python-learning/06-built-ins/45-built-in-functions' },
+              { label: 'Python.org', href: 'https://www.python.org/' },
+              { label: 'Stack Overflow', href: 'https://stackoverflow.com/questions/tagged/python' },
             ],
           },
           {
-            title: 'More',
+            title: 'Platform',
             items: [
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
-              {
-                label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
-              },
+              { label: 'Privacy Policy', to: '/docs/intro' },
+              { label: 'Terms of Use', to: '/docs/intro' },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Python Learning Hub. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Python Learning Hub Pro. Built with Production Excellence.`,
       },
       prism: {
         theme: prismThemes.github,

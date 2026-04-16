@@ -7,6 +7,8 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
 
+import { Rocket, Package, Braces, Database } from 'lucide-react';
+
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
@@ -41,14 +43,16 @@ const CurriculumSummary = () => (
       </div>
       <div className="row">
         {[
-          { icon: '🚀', title: 'The Basics', desc: 'Variables, Syntax, Controls' },
-          { icon: '📦', title: 'Data Structures', desc: 'Lists, Dicts, Tuples' },
-          { icon: '🧩', title: 'OOP & Modern', desc: 'Classes, Match, Lambdas' },
-          { icon: '💾', title: 'Advanced', desc: 'SQL, Files, VirtualEnv' }
+          { Icon: Rocket, title: 'The Basics', desc: 'Variables, Syntax, Controls' },
+          { Icon: Package, title: 'Data Structures', desc: 'Lists, Dicts, Tuples' },
+          { Icon: Braces, title: 'OOP & Modern', desc: 'Classes, Match, Lambdas' },
+          { Icon: Database, title: 'Advanced', desc: 'SQL, Files, VirtualEnv' }
         ].map((item, i) => (
           <div key={i} className="col col--3">
             <div className={styles.curriculumCard}>
-              <div className={styles.curriculumIcon}>{item.icon}</div>
+              <div className={styles.curriculumIcon}>
+                <item.Icon size={48} strokeWidth={1.5} color="var(--ifm-color-primary)" />
+              </div>
               <h3>{item.title}</h3>
               <p>{item.desc}</p>
             </div>
