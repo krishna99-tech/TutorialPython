@@ -1,0 +1,8 @@
+{
+  "label": "Deep Dive Topics",
+  "position": 9,
+  "link": {
+    "type": "generated-index",
+    "description": "Master advanced Python features like Decorators, Generators, and Context Managers."
+  }
+}

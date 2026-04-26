@@ -1,0 +1,8 @@
+{
+  "label": "Functional Programming",
+  "position": 8,
+  "link": {
+    "type": "generated-index",
+    "description": "Explore functional programming concepts like Lambda functions, Map, and Filter."
+  }
+}

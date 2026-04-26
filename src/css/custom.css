@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root {
@@ -14,10 +18,13 @@
   --base-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
   --text-gradient: linear-gradient(90deg, #6366f1, #a855f7);
   
-  --ifm-navbar-background-color: rgba(255, 255, 255, 0.8);
-  --ifm-navbar-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --ifm-navbar-background-color: rgba(255, 255, 255, 0.7);
+  --ifm-navbar-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
   --ifm-footer-background-color: #020617;
   --ifm-footer-color: #94a3b8;
+
+  --heroui-primary: #6366f1;
+  --heroui-secondary: #a855f7;
 }
 
 [data-theme='dark'] {
@@ -25,8 +32,8 @@
   --ifm-color-primary-dark: #6366f1;
   
   --ifm-background-color: #020617;
-  --ifm-navbar-background-color: rgba(2, 6, 23, 0.8);
-  --ifm-navbar-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --ifm-navbar-background-color: rgba(2, 6, 23, 0.7);
+  --ifm-navbar-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   
   --docusaurus-highlighted-code-line-bg: rgba(99, 102, 241, 0.15);
 }
@@ -41,9 +48,10 @@
 
 /* Navbar Tuning */
 .navbar {
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(99, 102, 241, 0.1);
   padding: 0.75rem 2rem;
+  transition: all 0.3s ease;
 }
 
 .navbar__title {
@@ -51,78 +59,39 @@
   font-size: 1.25rem;
 }
 
-/* Landing Page Hero */
-.hero--primary {
-  background: #020617; /* Dark background for the hero */
-  position: relative;
-  padding: 6rem 0;
-  color: white;
-}
-
-.hero--primary::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 40%),
-              radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.1) 0%, transparent 40%);
-  pointer-events: none;
-}
-
-.hero__title {
-  font-size: 4rem;
-  line-height: 1.1;
-  margin-bottom: 1.5rem;
-  letter-spacing: -1px;
-}
-
-.hero__subtitle {
-  font-size: 1.5rem;
-  color: #94a3b8;
-  max-width: 800px;
-  margin: 0 auto 2.5rem;
-}
-
-.button--secondary {
-  border-radius: 99px;
-  padding: 1rem 2.5rem;
-  font-size: 1.1rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-/* Cards & Layout */
-.markdown h1 {
-  font-size: 2.75rem;
-  margin-bottom: 2rem;
-  border-bottom: none;
-}
-
-.markdown h2 {
-  font-size: 1.8rem;
-  margin-top: 3rem;
-  color: var(--ifm-color-primary);
-}
-
-.admonition {
-  border-radius: 12px;
-  border: none;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-}
-
 /* Sidebar Styling */
+.theme-doc-sidebar-container {
+  border-right: 1px solid rgba(99, 102, 241, 0.1);
+}
+
 .menu {
-  padding: 1rem;
+  padding: 1.5rem 1rem;
 }
 
 .menu__link {
-  border-radius: 8px;
-  margin: 2px 0;
-  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  margin: 4px 0;
+  padding: 0.75rem 1.25rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
 }
 
 .menu__link--active {
   background: var(--base-gradient) !important;
   color: white !important;
-  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.25);
+  transform: translateX(4px);
+}
+
+.menu__link:hover:not(.menu__link--active) {
+  background: rgba(99, 102, 241, 0.05);
+  transform: translateX(4px);
+}
+
+/* Glassmorphism Classes */
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
 }

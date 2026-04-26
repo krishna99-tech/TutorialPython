@@ -20,7 +20,7 @@ const config = {
   },
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://tutorial-python-zeta.vercel.app',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -77,6 +77,16 @@ const config = {
         ],
       },
     ],
+    async function tailwindPlugin(context, options) {
+      return {
+        name: "docusaurus-tailwindcss",
+        configurePostCss(postcssOptions) {
+          postcssOptions.plugins.push(require("tailwindcss"));
+          postcssOptions.plugins.push(require("autoprefixer"));
+          return postcssOptions;
+        },
+      };
+    },
   ],
 
   themeConfig:
@@ -100,7 +110,7 @@ const config = {
             label: 'The Curriculum',
           },
           {
-            href: 'https://github.com/your-org/python-hub',
+            href: 'https://github.com/krishna99-tech/TutorialPython',
             label: 'Source Code',
             position: 'right',
           },
