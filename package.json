@@ -20,6 +20,7 @@
     "@docusaurus/preset-classic": "3.10.0",
     "@easyops-cn/docusaurus-search-local": "0.55.1",
     "@heroui/react": "^3.0.3",
+    "@tailwindcss/postcss": "^4.2.4",
     "@mdx-js/react": "^3.0.0",
     "autoprefixer": "^10.5.0",
     "clsx": "^2.0.0",
