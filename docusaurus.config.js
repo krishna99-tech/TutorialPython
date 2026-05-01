@@ -14,11 +14,6 @@ const config = {
   tagline: 'Master Python from scratch with sample codes.',
   favicon: 'img/favicon.ico',
 
-  // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
-  future: {
-    v4: true, // Improve compatibility with the upcoming Docusaurus v4
-  },
-
   // Set the production url of your site here
   url: 'https://tutorial-python-zeta.vercel.app',
   // Set the /<baseUrl>/ pathname under which your site is served
@@ -77,16 +72,6 @@ const config = {
         ],
       },
     ],
-    async function tailwindPlugin(context, options) {
-      return {
-        name: "docusaurus-tailwindcss",
-        configurePostCss(postcssOptions) {
-          postcssOptions.plugins.push(require("@tailwindcss/postcss"));
-          postcssOptions.plugins.push(require("autoprefixer"));
-          return postcssOptions;
-        },
-      };
-    },
   ],
 
   themeConfig:
